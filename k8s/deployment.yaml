@@ -1,21 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
+
 metadata:
   name: arg-demo-app
+
 spec:
   replicas: 1
-  selector:    matchLabels:
+
+  selector:
+    matchLabels:
       app: arg-demo-app
+
   template:
-    metaa:
+    metadata:
       labels:
         app: arg-demo-app
+
     spec:
       containers:
       - name: app
-        image: argo-demo-app:v1
-        imagePullPolicy:  Never   # currently image loaded directly into minikube for local access
-
+        image: yourdockerhubuser/arg-demo-app:initial
         ports:
         - containerPort: 8080
-
